@@ -12,7 +12,7 @@ function resolve_symlink  # filename
     while [ -h "${filename}" ]; do
         dir="$( cd -P "$( dirname "${filename}" )" && pwd )"
         filename="$(readlink "${filename}")"
-      [[ ${filename} != /* ]] && filename="${dir}/${filename}"
+        [[ ${filename} != /* ]] && filename="${dir}/${filename}"
     done
     echo ${filename}
 }
@@ -38,16 +38,16 @@ function formatsong  # data, char
     declare IFS="|"
     declare data=( $1 ) char="$2"
 
-	#echo ${data[0]} # Artist
-	#echo ${data[1]} # Song title
-	#echo ${data[2]} # Percent completed
+    #echo ${data[0]} # Artist
+    #echo ${data[1]} # Song title
+    #echo ${data[2]} # Percent completed
 
     declare a="$(fgcolor white $2)"
     declare b="$(fgcolor red $2)"
     declare c="$(fgcolor black $2)"
 
-	echo "${data[0]}"
-	echo "${data[1]}"
+    echo "${data[0]}"
+    echo "${data[1]}"
     echo $(progress 5 "${data[2]}" "$a" "$b" "$c" "")
 }
 

@@ -1,8 +1,7 @@
 #! /bin/bash
 #
-# Functions to print styled text
-# 
-
+# Ugh. I can't remember doing this. These are some simple functions that will
+# wrap text in ANSI escape sequences. Well, it works.
 
 function ansicolor {
 
@@ -24,7 +23,8 @@ function ansicolor {
 		white)
 			num=7;;
 		*)
-			num="9";;
+			num="9";;  # I have no idea why this is a string. I'm guessing no
+                       # reason.
 	esac
 
 	echo $num
@@ -39,17 +39,5 @@ function blink   { echo "\033[5m$@\033[0m"; }
 function reverse { echo "\033[7m$@\033[0m"; }
 function frame   { echo "\033[51m$@\033[0m"; }
 function circle  { echo "\033[52m$@\033[0m"; }
-
 function fgcolor { color=$1; shift; echo "\033[$((`ansicolor $color` + $ansifg))m$@\033[0m"; }
 function bgcolor { color=$1; shift; echo "\033[$((`ansicolor $color` + $ansibg))m$@\033[0m"; }
-
-#echo $(bold bold text)
-#echo $(uline uline line)
-#echo $(blink blink blink)
-#echo $(reverse reverse asd)
-#echo $(frame   reverse asd)
-#echo $(circle  reverse asd)
-#echo $(fgcolor gold text goes here)
-#echo $(bgcolor blue text goes here)
-#echo $(bgcolor red $(fgcolor yellow text goes here))
-
