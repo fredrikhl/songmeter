@@ -3,31 +3,22 @@
 # Ugh. I can't remember doing this. These are some simple functions that will
 # wrap text in ANSI escape sequences. Well, it works.
 
-function ansicolor {
+function ansicolor  # color
+{
 
-	case $1 in
-		black)
-			num=0;;
-		red)
-			num=1;;
-		green)
-			num=2;;
-		yellow)
-			num=3;;
-		blue)
-			num=4;;
-		magenta)
-			num=5;;
-		cyan)
-			num=6;;
-		white)
-			num=7;;
-		*)
-			num="9";;  # I have no idea why this is a string. I'm guessing no
+  case $1 in
+    black)   num=0;;
+    red)     num=1;;
+    green)   num=2;;
+    yellow)  num=3;;
+    blue)    num=4;;
+    magenta) num=5;;
+    cyan)    num=6;;
+    white)   num=7;;
+    *)       num="9";; # I have no idea why this is a string. I'm guessing no
                        # reason.
-	esac
-
-	echo $num
+  esac
+  echo $num
 }
 
 ansifg=30
